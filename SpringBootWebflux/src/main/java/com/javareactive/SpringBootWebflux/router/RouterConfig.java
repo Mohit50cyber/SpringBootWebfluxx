@@ -29,13 +29,5 @@ public class RouterConfig {
                 .POST("/router/customers/save",handler::saveCustomer)
                 .build();
     }
-    @Bean
-    public RouterFunction<ServerResponse> der(CustomerHandler handler) {
-        return RouterFunctions.route()
-                .GET("/router/customers", request -> (Mono<ServerResponse>) handler.loadCustomer(request).block())  // or handler::loadCustomer
-                .GET("router/customers/stream",customStreamHandler::getCustomers)
-                .GET("/router/customers/{input}",handler::findCustomer)
-                .POST("/router/customers/save",handler::saveCustomer)
-                .build();
-    }
+
 }
