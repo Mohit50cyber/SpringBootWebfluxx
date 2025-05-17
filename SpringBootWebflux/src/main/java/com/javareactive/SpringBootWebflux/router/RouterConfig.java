@@ -30,7 +30,7 @@ public class RouterConfig {
                 .build();
     }
     @Bean
-    public RouterFunction<ServerResponse> nigga(CustomerHandler handler) {
+    public RouterFunction<ServerResponse> niggaman(CustomerHandler handler) {
         return RouterFunctions.route()
                 .GET("/router/customers", request -> (Mono<ServerResponse>) handler.loadCustomer(request).block())  // or handler::loadCustomer
                 .GET("router/customers/stream",customStreamHandler::getCustomers)
